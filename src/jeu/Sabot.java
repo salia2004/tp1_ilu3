@@ -21,20 +21,24 @@ public class Sabot implements Iterable<Carte> {
 		return pioche.length==0;
 	}
 	
-	public void ajouterCarte(Carte c) throws Exception
+	public void ajouterCarte(Carte c) 
 	{
 		if (this.nbCartes>pioche.length)
 		{
-			throw new Exception("problemme e/s");}
+			 throw new ArrayIndexOutOfBoundsException("Capacité atteinte");
+		}
 		else
 		{
 			pioche[nbCartes]=c;
 			nbCartes++;}}
 	
-	public void ajouterFamilleCarte(Carte c)
-	{
-		///je sait pas 
-	}
+	 public void ajouterFamilleCarte(Carte c, int nb )
+	 {
+		 for(int i=0;i<nb;i++)
+		 {
+			 ajouterCarte(c);
+		 }
+	 }
 	
 	public void ajouterFamilleCarte(Carte...cartes)
 	{
