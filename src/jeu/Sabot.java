@@ -36,6 +36,7 @@ public class Sabot implements Iterable<Carte> {
 	 {
 		 for(int i=0;i<nb;i++)
 		 {
+			///controle le depassement memoire 
 			 ajouterCarte(c);
 		 }
 	 }
@@ -85,7 +86,7 @@ public class Sabot implements Iterable<Carte> {
 		///////////REMOVE
 		public void remove()
 		{
-			if (pioche.length < 1 || !nextEffectue) { throw new IllegalStateException(); }
+			if (nbCartes < 1 || !nextEffectue) { throw new IllegalStateException(); }
 			else {
 				for(int i=indiceiter-1;i<nbCartes;i++)
 				{
@@ -102,10 +103,19 @@ public class Sabot implements Iterable<Carte> {
 	
 	public Carte piocher()
 	{
-		Iterator<Carte> c =iterator();
-		Carte car=iterator().next();
-		c.remove();
-		return car;
+		if (this.estVide())
+		{
+			return null;
+		}
+		else
+		{
+			Iterator<Carte> c =iterator();
+			Carte car=iterator().next();
+			System.out.println("Je pioche "+ car);
+			c.remove();
+			return car;
+		}
+		
 	}
 	
 	
