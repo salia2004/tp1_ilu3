@@ -31,6 +31,7 @@ public class Test {
 		s.ajouterFamilleCarte(c,c,c );
 		s.ajouterCarte(c2);
 		///Carte res=s.piocher();
+		////ajout test 
 	
 	}
 
