@@ -7,7 +7,7 @@ public abstract class Probleme extends Carte {
 	
 	private Type t;
 	
-	public Probleme(int nombre, Type t ) {
+	protected Probleme(int nombre, Type t ) {
 		super(nombre);
 		this.t=t;
 	}
@@ -17,5 +17,23 @@ public abstract class Probleme extends Carte {
 		return t;
 	}
 	
-
+	public String toString()
+	{
+		switch(t)
+		{
+		case FEU:
+			return "FEU";
+		case ESSENCE:
+			return "ESSENCE";
+		case CREVAISON:
+			return "CREVAISON";
+		default:
+			return "ACCIDENT";
+		}
+	}
+	public boolean equals(Object ob)
+	{
+		Probleme p=(Probleme) ob;
+		return (super.equals(ob) && (this.gettype()==p.gettype()));
+	}
 }

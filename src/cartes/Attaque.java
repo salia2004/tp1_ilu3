@@ -10,8 +10,8 @@ public class Attaque extends Bataille {
 	
 	public String toString()
 	{
-		
-		switch(super.gettype())
+		Type x= super.gettype();//x est null pourquoi ?
+		switch(x)
 		{
 		case FEU:
 			return "FEU ROUGE";

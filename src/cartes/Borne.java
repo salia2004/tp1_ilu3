@@ -9,6 +9,10 @@ public class Borne extends Carte {
 		this.km=km;
 	}
 	
+	public int getKilo()
+	{
+		return km;
+	}
 	public String toString()
 	{
 		
@@ -26,6 +30,11 @@ public class Borne extends Carte {
 			return "200";
 		}
 		
+	}
+	public boolean equals(Object ob)
+	{
+		Borne p=(Borne) ob;
+		return super.equals(ob) && this .getKilo()==p.getKilo();
 	}
 
 }
