@@ -6,4 +6,5 @@ public class JeuDeCarte {
 	{
 		 typesDeCartes=null;
 	}
+	///modif
 }
