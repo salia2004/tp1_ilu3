@@ -14,6 +14,13 @@ public class JeuDeCartes {
 	
     private List<Carte> listeCartes = new ArrayList<>();
 		public JeuDeCartes() {
+			
+			
+			typesDeCarte[8] = new Parade(14, Type.FEU);
+	        typesDeCarte[9] = new Parade(6, Type.ESSENCE);
+	        typesDeCarte[10] = new Parade(6, Type.CREVAISON);
+	        typesDeCarte[11] = new Parade(6, Type.ACCIDENT);
+			
 	        typesDeCarte[0] = new Botte(1, Type.FEU);
 	        typesDeCarte[1] = new Botte(1, Type.ESSENCE);
 	        typesDeCarte[2] = new Botte(1, Type.CREVAISON);
@@ -24,10 +31,7 @@ public class JeuDeCartes {
 	        typesDeCarte[6] = new Attaque(3, Type.CREVAISON);
 	        typesDeCarte[7] = new Attaque(3, Type.ACCIDENT);
 
-	        typesDeCarte[8] = new Parade(14, Type.FEU);
-	        typesDeCarte[9] = new Parade(6, Type.ESSENCE);
-	        typesDeCarte[10] = new Parade(6, Type.CREVAISON);
-	        typesDeCarte[11] = new Parade(6, Type.ACCIDENT);
+	        
 	        typesDeCarte[12] = new DebutLimite(4);
 	        typesDeCarte[13] = new FinLimite(6);
 
@@ -45,15 +49,17 @@ public class JeuDeCartes {
 	                liste.add(carte);
 	            }
 	        }
-	        
+	        ///modifier pour melanger les cartes
 	        listeCartes=Utils.melanger(liste);
 
 	    }
-
+		//getter
 	    public List<Carte> getListeCartes() {
 	        return listeCartes;
 	    }
-	    //ne marche peut-etre pas 
+	    
+	    /// verifie que le nombre d'exemplaire souhaiter pour chaque type de carte a bien ete respecter 
+	    
 	    public boolean checkCount() {
 	        int nb=0;
 	        for(Carte c : listeCartes) {
@@ -63,6 +69,7 @@ public class JeuDeCartes {
 	                }
 	            }
 	            if (nb != c.getNombre()) return false;
+	            nb=0;//remise du nombre a zero 
 	        }
 	        return true;
 	    }

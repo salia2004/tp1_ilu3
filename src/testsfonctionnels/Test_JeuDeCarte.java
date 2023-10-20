@@ -20,10 +20,6 @@ public class Test_JeuDeCarte {
 			
 		}
 		
-		///Test sur le nombre d'exemplaire
-		
-		System.out.println(c.checkCount());
-		
 		JeuDeCartes jeu = new JeuDeCartes();
 		List<Carte> listeCarteNonMelangee = jeu.getListeCartes(); 
 		List<Carte> listeCartes = new ArrayList<>(listeCarteNonMelangee); 
@@ -36,7 +32,11 @@ public class Test_JeuDeCarte {
 		System.out.println("liste rassemblée sans erreur ? " + Utils.verifierRassemblement(listeCartes));
 		
 		
-		///question 7 a faire 
+		///test verifiant que le nombre d'occurance de chaque carte est bien respecter 
+		System.out.println("-----------debut test checkcount----------");
+		System.out.println(c.checkCount());
+		
+		
 	}
 
 }

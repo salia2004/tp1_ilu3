@@ -32,6 +32,7 @@ public abstract class Probleme extends Carte {
 		}
 	}
 	
+	
 	public boolean equals(Object obj) {
         return super.equals(obj) && this.t == ((Probleme)obj).t;
     }

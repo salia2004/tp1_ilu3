@@ -7,6 +7,7 @@ import java.util.ListIterator;
 import java.util.Random;
 
 public class Utils {
+	
 	private static Random rand = new Random();
 
 
@@ -19,12 +20,20 @@ public class Utils {
 		iterateur.remove();
 		return carte;
 	}
+	///faire deuxieme version de extraire !!!!!
+	
+	public static <C> C extraire2(List<C> liste) {
+		int r=rand.nextInt(liste.size());
+		C carte= liste.get(r);
+		liste.remove(r);
+		return carte;
+		
+	}
 
 	public static <C> List<C> melanger(List<C> liste) {
 		List<C> listeMelange = new ArrayList<>();
-		int n = liste.size();
-		for (int i = 0; i < n; i++) {
-			listeMelange.add(extraire(liste));
+		while(!liste.isEmpty()) {
+			listeMelange.add(extraire2(liste));
 		}
 		return listeMelange;
 	}
@@ -52,7 +61,7 @@ public class Utils {
 
 				for (int j = i + 1; j < liste.size(); j++) {
 					C elem2 = liste.get(j);
-					if (elem == elem2) {
+					if (elem == elem2) {//utiliser equals!!
 						listeRassemble.add(elem2);
 					}
 				}
