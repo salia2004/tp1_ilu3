@@ -4,7 +4,6 @@ public class Botte extends Probleme {
 
 	public Botte(int nombre, Type t) {
 		super(nombre, t);
-		// TODO Auto-generated constructor stub
 	}
 	public String toString()
 	{

@@ -31,9 +31,10 @@ public abstract class Probleme extends Carte {
 			return "ACCIDENT";
 		}
 	}
-	public boolean equals(Object ob)
-	{
-		Probleme p=(Probleme) ob;
-		return (super.equals(ob) && (this.gettype()==p.gettype()));
-	}
+	
+	public boolean equals(Object obj) {
+        return super.equals(obj) && this.t == ((Probleme)obj).t;
+    }
+ 
+
 }

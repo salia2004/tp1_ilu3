@@ -31,10 +31,12 @@ public class Borne extends Carte {
 		}
 		
 	}
-	public boolean equals(Object ob)
-	{
-		Borne p=(Borne) ob;
-		return super.equals(ob) && this .getKilo()==p.getKilo();
-	}
+	 public boolean equals(Object carte) {
+	        if (carte instanceof Borne borne) {
+	            return borne.km == this.km;
+	        }
+	        return false;
+	    }
+
 
 }
