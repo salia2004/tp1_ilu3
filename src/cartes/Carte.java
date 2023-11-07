@@ -3,6 +3,8 @@ package cartes;
 public abstract class Carte {
 	private int nombre;
 	
+	public static final int FEU_ROUGE = 1;
+	
 	protected  Carte(int nombre) {
 		this.nombre = nombre;
 	}

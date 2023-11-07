@@ -84,8 +84,7 @@ public class Utils {
 					if(se.equals(cur)) {
 						return false;
 					}
-				}
-					
+				}	
 				cur = e;
 			}
 		}

@@ -12,8 +12,10 @@ public class test
 		Carte c3=new Attaque(50, Type.ACCIDENT);
 		Carte c4=new Borne(50,10);
 		Carte c5=new Borne(49,10);
+		
 		Carte c6=new Parade(50,Type.ACCIDENT);
 		Carte c7=new Parade(89,Type.ACCIDENT);
+		
 		boolean x=c.equals(c1);
 		boolean y= c2.equals(c);
 		System.out.println("c et c1"+ x);

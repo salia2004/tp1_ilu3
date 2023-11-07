@@ -11,6 +11,7 @@ public class MainAsListe implements Main{
 	
 	
 	public void prendre(Carte c) {
+		//System.out.println("botte feu, la limite dans prendre ");
 		l.add(c);
 		
 	}
@@ -22,6 +23,11 @@ public class MainAsListe implements Main{
 	@Override
 	public Iterator<Carte> iter_c() {
 		return l.iterator();
+	}
+	
+	public List<Carte> getlist()
+	{
+		return l;
 	}
 
 }
