@@ -1,9 +1,8 @@
 package cartes;
-
+import jeu.*;
 public abstract class Carte {
 	private int nombre;
 	
-	public static final int FEU_ROUGE = 1;
 	
 	protected  Carte(int nombre) {
 		this.nombre = nombre;
@@ -20,4 +19,10 @@ public abstract class Carte {
 		}
 		return false;
 	}
+	
+	public boolean appliquer(Joueur j) {
+		return false;
+	}
+	
+	
 }
