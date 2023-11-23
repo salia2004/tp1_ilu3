@@ -21,9 +21,9 @@ public class Test_joueur {
 			Borne b2=new Borne(49,10);
 			Borne b3=new Borne(60,10);
 			
-			Parade c7=new Parade(89,Type.ESSENCE);
+			//Parade c7=new Parade(89,Type.ESSENCE);
 			Parade c1=new Parade(50,Type.CREVAISON);
-			Parade c8=new Parade(50,Type.CREVAISON);
+			//Parade c8=new Parade(50,Type.CREVAISON);
 			
 			
 			FinLimite f1=new FinLimite(50);
@@ -98,7 +98,7 @@ public class Test_joueur {
 	        
 	        Attaque a1=new Attaque(50,Type.FEU);//feu rouge
 	        Botte bot2= new Botte(50,Type.FEU);//vehicule prioritaire
-	        Parade c6=new Parade(50,Type.ACCIDENT);//reparation
+	        //Parade c6=new Parade(50,Type.ACCIDENT);//reparation
 	        
 			Botte bot1= new Botte(50,Type.ACCIDENT);//as du volant
 			Attaque a2=new Attaque(50,Type.ESSENCE);//pane essence
@@ -149,7 +149,7 @@ public class Test_joueur {
 	        // Test 8: Ajouter un FEU_VERT (false) //bon
 	        joueur2.getpileBataille().add(c18);
 	        System.out.println("F Est bloqué (après ajout FEU_VERT) : " + joueur2.estBloque());
-	        
+	           
 		}
 }
 		

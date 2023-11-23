@@ -1,19 +1,9 @@
 package testsfonctionnels;
-import cartes.Carte;
+import cartes.*;
 import jeu.Sabot;
-import cartes.Probleme;
 import cartes.Probleme.Type;
 
 import java.util.Iterator;
-
-import cartes.Attaque;
-import cartes.Bataille;
-import cartes.Borne;
-import cartes.Botte;
-import cartes.DebutLimite;
-import cartes.FinLimite;
-import cartes.Limite;
-import cartes.Parade;
 
 
 public class Test {

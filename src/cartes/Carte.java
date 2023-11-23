@@ -20,9 +20,7 @@ public abstract class Carte {
 		return false;
 	}
 	
-	public boolean appliquer(Joueur j) {
-		return false;
-	}
+	public abstract boolean appliquer(Joueur j);
 	
 	
 }

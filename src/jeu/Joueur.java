@@ -11,6 +11,7 @@ import cartes.Probleme.Type;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class Joueur  {
 	
@@ -22,7 +23,7 @@ public class Joueur  {
 	private Set<Botte> ensembleBottes;
 	
 	private MainAsListe main_joueur;//main du joueur 
-	
+	Jeu jeu;
 	
 	public Joueur(String n)
 	{
@@ -37,6 +38,19 @@ public class Joueur  {
 	
 	
 	/////debut getter 
+	
+	public Jeu getJeu() {
+		return jeu;
+	}
+	
+
+	
+	
+	
+	
+	
+	
+	
 	public String getNom()
 	{
 		return nom;
@@ -133,7 +147,7 @@ public class Joueur  {
 	}
 	
 	// Méthode pour vérifier si le joueur est prioritaire
-	private boolean estPrioritaire() {
+	public boolean estPrioritaire() {
 	    Botte bottePrioritaire = new Botte(50, Type.FEU);
 	    for(Botte c:ensembleBottes)
 	    {
@@ -150,42 +164,37 @@ public class Joueur  {
 	{
 		 
 		if(pileBataille.isEmpty()&& estPrioritaire()){
-			return false;
-		}
+			return false;}
 		
-		Parade p= new Parade(0, Type.FEU);//parade de type feu Feu_vert
+		Parade p= new Parade(0, Type.FEU);//parade de type Feu_vert
 		Attaque a=new Attaque(50, Type.FEU);///Feu_rouge
 		Carte sommetPile = pileBataille.get(pileBataille.size() - 1);
 		if (sommetPile.equals(p)){
 				return false;}
 			
-		if (estPrioritaire()) {
+		if (estPrioritaire()) 
+		{
 				if(estParade(sommetPile)){
 					//System.out.println("12");
-					return false;
-				}
+					return false;}
 				if( sommetPile.equals(a)){
 					//System.out.println("13");
-				return false;	
-				}
+					return false;}
 				if(estAttaque(sommetPile)&&sommetaBottes(sommetPile)){
-				return false;	
-				}
-				
-			}
-		return true;
+					return false;	}
 		}
+		return true;}
 	
-		private boolean estParade(Carte c)
+	
+	
+	private boolean estParade(Carte c)
 		{
-			return c instanceof Parade;
-		}
+			return c instanceof Parade;}
 				
 	
 	private boolean estAttaque(Carte c)
 	{
-		return c instanceof Attaque ;
-	}
+		return c instanceof Attaque ;}
 	private boolean sommetaBottes(Carte sommetPile)
 	{
 		String t=sommetPile.toString();
@@ -213,41 +222,76 @@ public class Joueur  {
 	    return false;
 	}
 	
-	public Set<Coup> coupsPossibles(List<Joueur> participant)
-	{
-		Set<Coup> list= new HashSet<>();
-		
-		for(Joueur j: participant)
-		{
-			for(Carte c: pileBataille)
-			{
+	public Set<Coup> coupsPossibles(List<Joueur> participant){
+		Set<Coup> listcoups= new HashSet<>();
+		for(Joueur j: participant){
+			for(Carte c: pileBataille){
 				Coup cp= new Coup(j,c);
-				if(cp.estValide(j))
-				{
-					list.add(cp);
-				}
+				if(cp.estValide(this)){
+					listcoups.add(cp);}
 			}
 		}
-		
-		return list;
-	}
-	 public Set<Coup>  coupsParDefaut()
-	 {
+		return listcoups;}
+	
+	
+	
+	 public Set<Coup>  coupsParDefaut(){
 		 Set<Coup> list= new HashSet<>();
-		 for(Carte c: pileBataille)
-			{
+		 for(Carte c: pileBataille){
 				Coup cp= new Coup(null,c);
-				if(cp.estValide(null))
-				{
+				if(cp.estValide(this)){
 					list.add(cp);
 				}
 			}
 		 return list;
 	 }
+	 public Object getBornes() {
+			// TODO Auto-generated method stub
+			return collectionBornes;
+		}
+
+
 	
-	
-	
-	
+	 public Coup selectionner() {
+	        Set<Coup> ensemble = coupsPossibles(jeu.getJoueurs());
+	        if (ensemble.isEmpty()) {
+	            return null;
+	        }
+	        Iterator<Coup> it = ensemble.iterator();
+	        Coup coup = it.next();
+	        coup.jouer(this);
+	        return coup;
+	    }
+
+	 public Coup rendreCarte() {
+	        Set<Coup> ensemble = coupsParDefaut();
+	        if (ensemble.isEmpty()) {
+	            return null;
+	        }
+	        Iterator<Coup> it = ensemble.iterator();
+	        Coup coup = it.next();
+	        coup.jouer(this);
+	        return coup;
+	    }
+
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
 	
 	
 	
